@@ -11,8 +11,8 @@ $> sudo yum install rpm-build mariadb-devel libffi-devel cyrus-sasl-devel gcc-c+
 $> sudo yum install python36 python36-devel python36-libs python36-numpy python36-pbr python36-setuptools python36-pip
 $> sudo yum install python36-pysocks python36-root python36-six python36-test python36-urllib3
 ```
-># not need $> sudo pip install setuptools --upgrade
-># not need $> sudo pip install pip --upgrade
+not need $> sudo pip install setuptools --upgrade
+not need $> sudo pip install pip --upgrade
 
 ## Clone 
 ```
