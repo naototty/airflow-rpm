@@ -1,36 +1,40 @@
 # airflow-rpm
 
-Build scripts for generating Airflow RPM files.
+Build scripts for generating Apache Airflow RPM files.
 Tested on CentOS 7
 
 ## Install Build Requirements
 ```
 $> sudo yum install epel-release
 $> sudo yum update
-$> sudo yum install rpm-build python2-pip python-devel mariadb-devel libffi-devel cyrus-sasl-devel gcc-c++
-$> sudo pip install setuptools --upgrade
-$> sudo pip install pip --upgrade
+$> sudo yum install rpm-build mariadb-devel libffi-devel cyrus-sasl-devel gcc-c++
+$> sudo yum install python36 python36-devel python36-libs python36-numpy python36-pbr python36-setuptools python36-pip
+$> sudo yum install python36-pysocks python36-root python36-six python36-test python36-urllib3
 ```
+># not need $> sudo pip install setuptools --upgrade
+># not need $> sudo pip install pip --upgrade
 
 ## Clone 
 ```
-$> git clone https://github.com/hurdad/airflow-rpm.git
+$> git clone https://github.com/naototty/airflow-rpm.git
 $> cd airflow-rpm
 ```
 
 ## Configure Version + Packages
-Configure Airflow version on pip
+Configure Apache Airflow version on pip
+(Apache Airflow on https://pypi.org/project/apache-airflow/; start version >= 1.8.1)
 ```
 $> cat Makefile
 ...
-version = 1.8.0
+version = 1.8.1
 ```
 
 ## Configure Airflow Packages as needed
 ```
 $> cat Makefile
 ...
-packages = devel,devel_hadoop,celery,crypto,jdbc,hdfs,kerberos,ldap,mysql,password,postgres,rabbitmq
+## packages = devel,devel_hadoop,celery,crypto,jdbc,hdfs,kerberos,ldap,mysql,password,postgres,rabbitmq
+packages = devel,celery,crypto,password,postgres,s3
 ```
 
 ## Build RPM
